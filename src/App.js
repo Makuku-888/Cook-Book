@@ -1,26 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import client from './contentfulclient.js';
 
-function App() {
+const App = () => {
+ 
+  
+client.getEntries()
+  .then((response) => console.log(response.items))
+  .catch(console.error)
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container">
+        <header>
+          <div className="wrapper">
+            <span>Recipe Blog</span>
+          </div>
+        </header>
+        <main></main>
+      </div>
     </div>
   );
 }
+
 
 export default App;
