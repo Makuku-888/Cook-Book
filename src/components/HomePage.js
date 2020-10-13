@@ -9,8 +9,8 @@ const displayCountry =
     countries &&
     countries.map((country) => (
         <div className="countryHome" key={country.sys.id}>
-        <h2>{country.fields.countryDescription}</h2>
-        <img src={country.fields.countryImage.fields.file.url} 
+        <h2 className="countryHead">{country.fields.countryDescription}</h2>
+        <img className="countryImg" src={country.fields.countryImage.fields.file.url} 
              alt={country.fields.countryDescription} 
              style={{width: 450, height:300}} 
         />

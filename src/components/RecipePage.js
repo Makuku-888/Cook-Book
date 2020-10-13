@@ -10,8 +10,13 @@ return(
     {recipes && recipes.map((recipe)=>{
        return (
         <> 
-            <p>{recipe.fields.recipeDescription}</p>
-            {documentToReactComponents(recipe.fields.directions)}   
+            <h1 className="recipeHead">{recipe.fields.recipeDescription}</h1>
+            <img className="recipeImg" src={recipe.fields.recipeImage.fields.file.url} 
+             alt={recipe.fields.recipeDescription} 
+             style={{width: 450, height:300}} 
+            />
+            <p className="ingredients">{documentToReactComponents(recipe.fields.ingredients)}</p>
+            <p className="directions">{documentToReactComponents(recipe.fields.directions)}  </p>
         </>
      ) })
     }
