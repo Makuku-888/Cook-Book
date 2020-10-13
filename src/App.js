@@ -1,80 +1,55 @@
-import React, { useState, useEffect } from 'react';
-import './App.css';
-import client from './contentfulclient.js';
-import HomePage from './components/HomePage.js';
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
-import RecipePage from './components/RecipePage.js';
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import client from "./contentfulclient.js";
+import HomePage from "./components/HomePage.js";
+import RecipePage from "./components/RecipePage.js";
+import { Link, Route, Switch } from "react-router-dom";
 
 const App = () => {
- 
- const [countries, setCountries] = useState([]);
- const [recipes, setRecipes] = useState([]);
+  const [countries, setCountries] = useState([]);
+  const [recipes, setRecipes] = useState([]);
 
+  useEffect(() => {
+    client
+      .getEntries({ content_type: "countrySections" })
+      .then((response) => {
+        setCountries(response.items);
+      })
+      .catch((error) => console.log("you have an error"));
+  }, []);
 
-useEffect(() => {
- client
-    .getEntries({ 'content_type' : "countrySections" })
-    .then((response) => {
-      setCountries(response.items);
-    })
-    .catch((error) => console.log("you have an error"));
-}, []);
-
-
-useEffect(() => {
-  client
-     .getEntries({ 'content_type' : "recipeSection" })
-     .then((response) => {
-       setRecipes(response.items);
-     })
-     .catch((error) => console.log("you have an error"));
- }, []);
- 
- 
- console.log(recipes)
-
-
+  useEffect(() => {
+    client
+      .getEntries({ content_type: "recipeSection" })
+      .then((response) => {
+        setRecipes(response.items);
+      })
+      .catch((error) => console.log("you have an error"));
+  }, []);
 
   return (
     <div className="App">
       <div>
-        <HomePage countries={countries} recipes={recipes}/>
-        {recipes && <RecipePage recipes={recipes} /> }
+        <header>
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+        </header>
+        <Switch>
+          <Route exact path="/">
+            <HomePage countries={countries} />
+          </Route> 
+
+          <Route path="/recipePage/:countryId"
+          render ={(props) => <RecipePage recipes={recipes} {...props}/>}
+          >
+            
+          </Route>
+
+          <Route>About</Route>
+        </Switch>
       </div>
     </div>
   );
-}
-
-
-//react router, or pass the recipes as a property
-
-
-/*client.getEntries()
-  .then((response) => console.log(response.items))
-  .catch(console.error)
-*/
-/*  client.getEntries()
-    .then(function (entries) {
-        entries.items.forEach(function (entry) {
-            if(entry.fields.countryDescription) {
-                console.log(entry)
-            }
-        })
-    })
-
-const Countries = 
-  countries.map((entry) => (
-  <div className='entry' key={entry.sys.id}>
-    {entry.fields.countryImage}
-    {entry.fields.countryDescription}
-</div> 
-));
-
-    */
-
-/* useEffect(() => {
-  client
-    .getEntries({ content_type: "recipeSections"})
-}) */
+};
 
 export default App;
