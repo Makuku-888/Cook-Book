@@ -1,12 +1,14 @@
 import React from "react";
+import RecipePage from "./RecipePage.js"
 
 
-const HomePage = ({ countries, match, history }) => {
+
+const HomePage = ({ countries, recipes, match, history }) => {
 
 const displayCountry = 
     countries &&
     countries.map((country) => (
-        <div className="countryHome">
+        <div className="countryHome" key={country.sys.id}>
         <h2>{country.fields.countryDescription}</h2>
         <img src={country.fields.countryImage.fields.file.url} 
              alt={country.fields.countryDescription} 
@@ -15,9 +17,7 @@ const displayCountry =
         </div>
     ))
 
-const handleClick = () =>{
-    
-}
+
 
 
 return (
@@ -29,3 +29,6 @@ return (
 
 
 export default HomePage;
+
+// browser router on index.js, dynamic link
+//when you render the component refetch the data and fiilter it by country

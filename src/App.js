@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import client from './contentfulclient.js';
 import HomePage from './components/HomePage.js';
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import RecipePage from './components/RecipePage.js';
 
 const App = () => {
  
@@ -27,6 +29,8 @@ useEffect(() => {
      })
      .catch((error) => console.log("you have an error"));
  }, []);
+ 
+ 
  console.log(recipes)
 
 
@@ -35,11 +39,14 @@ useEffect(() => {
     <div className="App">
       <div>
         <HomePage countries={countries} recipes={recipes}/>
+        {recipes && <RecipePage recipes={recipes} /> }
       </div>
     </div>
   );
 }
 
+
+//react router, or pass the recipes as a property
 
 
 /*client.getEntries()
