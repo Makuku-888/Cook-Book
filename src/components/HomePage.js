@@ -23,4 +23,4 @@ const HomePage = ({ countries, recipes, match, history }) => {
 export default HomePage;
 
 // browser router on index.js, dynamic link
-//when you render the component refetch the data and fiilter it by country
+//when you render the component refetch the data and filter it by country

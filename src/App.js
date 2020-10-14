@@ -4,6 +4,8 @@ import client from "./contentfulclient.js";
 import HomePage from "./components/HomePage.js";
 import RecipePage from "./components/RecipePage.js";
 import { Link, Route, Switch } from "react-router-dom";
+import DisplayRecipe from "./components/DisplayRecipe";
+import About from "./components/About";
 
 const App = () => {
   const [countries, setCountries] = useState([]);
@@ -31,21 +33,27 @@ const App = () => {
     <div className="App">
       <div>
         <header>
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
+          <nav>
+            <ul>
+            <Link to="/">Home</Link>
+            <Link to="/about">About</Link>
+            </ul>
+          </nav>
         </header>
         <Switch>
+          <Route path="/recipePage/:countryId"
+          render ={(props) => <RecipePage recipes={recipes} {...props}/>}>
+          </Route>
+          <Route path="/displayRecipe/:recipeId"
+          render={(props) => <DisplayRecipe recipes={recipes} {...props}/>}>
+          </Route>
+          <Route path="/about"
+          render={(props) => <About {...props} />}
+          >
+          </Route>
           <Route exact path="/">
             <HomePage countries={countries} />
           </Route> 
-
-          <Route path="/recipePage/:countryId"
-          render ={(props) => <RecipePage recipes={recipes} {...props}/>}
-          >
-            
-          </Route>
-
-          <Route>About</Route>
         </Switch>
       </div>
     </div>
