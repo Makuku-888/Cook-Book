@@ -1,6 +1,11 @@
 import React from "react";
 import RecipePage from "./RecipePage.js"
-
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
 
 
 const HomePage = ({ countries, recipes, match, history }) => {

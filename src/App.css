@@ -38,5 +38,13 @@
 }
 
 .countryHome {
- background-color: grey;
+ background-color: lightblue;
+}
+
+.nav{
+  padding: 5px;
+  background-color: pink;
+}
+ul a {
+  margin: 0 1em;
 }

@@ -4,6 +4,12 @@ import client from './contentfulclient.js';
 import HomePage from './components/HomePage.js';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import RecipePage from './components/RecipePage.js';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 const App = () => {
  
@@ -37,9 +43,40 @@ useEffect(() => {
 
   return (
     <div className="App">
-      <div>
-        <HomePage countries={countries} recipes={recipes}/>
-        {recipes && <RecipePage recipes={recipes} /> }
+      <nav>
+        <ul className="nav">
+          <Link to="/">Home</Link>
+          <Link to="/brazil">Brazil</Link>
+          <Link to="/nigeria">Nigeria</Link>
+          <Link to="/germany">Germany</Link>
+          <Link to="/usa">United States</Link>
+        </ul>
+      </nav>
+
+      <div >
+        <Switch>
+          <Route 
+            path="/brazil"
+            render={(props)=> <RecipePage  recipes={recipes} {...props} />}
+          />
+           <Route 
+            path="/nigeria"
+            render={(props)=> <RecipePage  recipes={recipes} {...props} />}
+          />
+           <Route 
+            path="/germany"
+            render={(props)=> <RecipePage  recipes={recipes} {...props} />}
+          />
+           <Route 
+            path="/usa"
+            render={(props)=> <RecipePage  recipes={recipes} {...props} />}
+          />
+          <Route
+            exact path="/" 
+            render={(props)=> <HomePage countries={countries} recipes={recipes} {...props} />}
+          />
+        </Switch>
+       
       </div>
     </div>
   );
@@ -47,6 +84,9 @@ useEffect(() => {
 
 
 //react router, or pass the recipes as a property
+//this was on line 58
+// <HomePage countries={countries} recipes={recipes}/>
+//{recipes && <RecipePage recipes={recipes} /> }
 
 
 /*client.getEntries()
