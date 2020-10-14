@@ -38,5 +38,21 @@
 }
 
 .countryHome {
- background-color: grey;
+ background-color: lightblue;
+}
+
+ul a {
+  margin: 0 1em;
+}
+nav{
+  background-color: pink;
+}
+
+.displayRecipes{
+  background-color: beige;
+}
+
+.countryHome {
+  padding: 5 px;
+  border: solid 1px beige;
 }
