@@ -33,10 +33,13 @@ const App = () => {
     <div className="App">
       <div>
         <header>
-          <nav>
+          <div className="logo">
+            <p>Our logo</p>
+          </div>
+          <nav className="nav-bar">
             <ul>
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
+            <Link className="nav-link" to="/">Home</Link>
+            <Link className="nav-link" to="/about">About</Link>
             </ul>
           </nav>
         </header>
@@ -56,6 +59,18 @@ const App = () => {
           </Route> 
         </Switch>
       </div>
+      <footer>
+        <div className="social-media-div">
+          <img className="social-media" src="../facebook.png"></img>
+          <img className="social-media" src="../instagram.png"></img>
+          <img className="social-media" src="../twitter.png"></img>
+          <img className="youtube-logo social-media" src="../youtube.png"></img>
+        </div>
+        <div className="copyright-div">
+          <p className="copyright">&copy; Company name 2020</p>
+        </div>
+
+      </footer>
     </div>
   );
 };
