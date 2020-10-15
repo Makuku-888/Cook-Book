@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+
 
 const RecipePage = ({ recipes,params,match}) =>{
 
@@ -8,7 +8,7 @@ const RecipePage = ({ recipes,params,match}) =>{
 const countryId = match.params.countryId
 
 return(
-    <>
+    <div className='showRecipes'>
     {recipes.length > 0 && recipes.filter(country => countryId === country.fields.relatedCountry.sys.id)
     .map((recipe)=>{
        return (
@@ -17,7 +17,7 @@ return(
             <h1 className="recipeHead">{recipe.fields.recipeDescription}</h1>
             <img className="recipeImg" src={recipe.fields.recipeImage.fields.file.url} 
              alt={recipe.fields.recipeDescription} 
-             style={{width: 450, height:300}} 
+             style={{width: 350, height:250}} 
              />
             {/* <p className="ingredients">{documentToReactComponents(recipe.fields.ingredients)}</p>
             <p className="directions">{documentToReactComponents(recipe.fields.directions)}  </p> */}
@@ -26,7 +26,7 @@ return(
      ) })
     }
      
-    </>
+    </div>
 )
 }
 
