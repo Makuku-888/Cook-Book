@@ -1,8 +1,8 @@
 import React from 'react';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { Link, Route, Switch } from "react-router-dom";
-
 import DisplayRecipe from './DisplayRecipe.js'
+// import "../App.css";
 
 const RecipePage = ({ recipes,params,match}) =>{
 
