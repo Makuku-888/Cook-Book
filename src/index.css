@@ -5,9 +5,60 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+ .showRecipes {
+  display: flex;
+  background-color: #353839;
+  width: 90%;
+  justify-content: space-around;
+  border-radius: 7px 7px 3px 3px;
+  animation: animated-border 2.5s 1s;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  
+  
+}
+
+ .recipeImg {  
+  margin-left: 20px;
+  justify-items: auto;
+  padding: 20px;
+  border: 0.3px solid #9a9a9a;
+  border-radius: 7px 7px 3px 3px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  transition: box-shadow 0.6s linear;
+  margin: 0.5em;
+  justify-content: space-around;
+  background-color: #bbbbbb
+} 
+.recipeImg:hover { box-shadow: 0px 0px 0px 10px #fffff0 }
+
+@keyframes animated-border {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255,255,255,0.4);
+  }
+  100% {
+     box-shadow: 0 0 0 20px rgba(255,255,255,0);
+  }
+}
+
+.recipeHead {
+  font-family: Optima, sans-serif	;
+  letter-spacing: 2px;
+  font-size: 22px;
+  color: white
+    
 }
