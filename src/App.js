@@ -33,16 +33,18 @@ const App = () => {
     <div className="App">
       <div>
         <header>
-          <div className="logo">
-            <p>Our logo</p>
-          </div>
-          <nav className="nav-bar">
+          <nav className="nav">
+          <img id="logo" src="https://mlsf03rmjfdn.i.optimole.com/QjsyvqU.Z_5R~130ed/w:auto/h:auto/q:auto/http://marcotest.the-coding-school.com/files/WBS-CODING-SCHOOL-logo-square.png" alt="logo" 
+              style={{ width: 37, height: 43 }}
+          />
             <ul>
             <Link className="nav-link" to="/">Home</Link>
             <Link className="nav-link" to="/about">About</Link>
             </ul>
           </nav>
         </header>
+      
+        
         <Switch>
           <Route path="/recipePage/:countryId"
           render ={(props) => <RecipePage recipes={recipes} {...props}/>}>
