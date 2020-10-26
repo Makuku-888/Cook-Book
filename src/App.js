@@ -45,8 +45,9 @@ const App = () => {
   }, []);
 
   return (
+  <>
     <div className="App">
-      {/* <div>
+      <div>
         <header>
           <nav className="nav">
           <img id="logo" src="https://mlsf03rmjfdn.i.optimole.com/QjsyvqU.Z_5R~130ed/w:auto/h:auto/q:auto/http://marcotest.the-coding-school.com/files/WBS-CODING-SCHOOL-logo-square.png" alt="logo" 
@@ -58,15 +59,19 @@ const App = () => {
             </ul>
           </nav>
         </header>
-      
-        
+      <div>
+        <HomePage countries={countries}/>
+      </div>
+       
+        {/*
         <Switch>
-          <Route path="/recipePage/:countryId"
-          render ={(props) => <RecipePage recipes={recipes} {...props}/>}>
-          </Route>
-          <Route path="/displayRecipe/:recipeId"
+        <Route path="/displayRecipe/:recipeId"
           render={(props) => <DisplayRecipe recipes={recipes} {...props}/>}>
           </Route>
+    <Route path="/recipePage/:countryId"
+          render ={(props) => <RecipePage recipes={recipes} {...props}/>}>
+          </Route>
+         
           <Route path="/about"
           render={(props) => <About {...props} />}
           >
@@ -75,8 +80,13 @@ const App = () => {
             <HomePage countries={countries} />
           </Route> 
         </Switch>
+        */}
       </div>
-      <footer>
+      
+
+   {/* 
+    
+    <footer>
         <div className="social-media-div">
           <img className="social-media" src="../facebook.png"></img>
           <img className="social-media" src="../instagram.png"></img>
@@ -86,9 +96,10 @@ const App = () => {
         <div className="copyright-div">
           <p className="copyright">&copy; Company name 2020</p>
         </div>
-
-      </footer> */}
+    </footer> 
+    */}
     </div>
+   </>
   );
 };
 

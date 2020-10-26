@@ -12,17 +12,17 @@ const countryId = match.params.countryId
 
 return(
     <div className='showRecipes'>
-    {recipes.length > 0 && recipes.filter(country => countryId === country.fields.relatedCountry.sys.id)
+    {recipes.length > 0 && recipes.filter(country => countryId === countryId)
     .map((recipe)=>{
        return (
         <div className="homePage"> 
-        <Link to={`/displayRecipe/${recipe.sys.id}`}>
+        <Link to={`/displayRecipe/${recipe.id}`}>
            <div>
-            <h1 className="recipeHead">{recipe.fields.recipeDescription}</h1>
-            <img className="recipeImg" src={recipe.fields.recipeImage.fields.file.url} 
+            <h1 className="recipeHead">{recipe.recipeDescription}</h1>
+           {/* <img className="recipeImg" src={recipe.fields.recipeImage.fields.file.url} 
              alt={recipe.fields.recipeDescription} 
              style={{width: 350, height:250}} 
-             />
+             /> */}
             </div>
             {/* <p className="ingredients">{documentToReactComponents(recipe.fields.ingredients)}</p>
             <p className="directions">{documentToReactComponents(recipe.fields.directions)}  </p> */}
