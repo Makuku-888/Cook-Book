@@ -12,26 +12,41 @@ const App = () => {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
-    client
-      .getEntries({ content_type: "countrySections" })
-      .then((response) => {
-        setCountries(response.items);
+    // client
+    //   .getEntries({ content_type: "countrySections" })
+    //   .then((response) => {
+    //     setCountries(response.items);
+    //   })
+    //   .catch((error) => console.log("you have an error"));
+    fetch("http://localhost:3000/mockCountry")
+      .then((res) => res.json())
+      .then((data) => {
+        setCountries(data)
+        console.log(data);
       })
-      .catch((error) => console.log("you have an error"));
+      .catch((error) => console.log("ERROR FETCHING DATA"));
   }, []);
 
   useEffect(() => {
-    client
-      .getEntries({ content_type: "recipeSection" })
-      .then((response) => {
-        setRecipes(response.items);
-      })
-      .catch((error) => console.log("you have an error"));
+    // client
+    //   .getEntries({ content_type: "recipeSection" })
+    //   .then((response) => {
+    //     setRecipes(response.items);
+    //   })
+    //   .catch((error) => console.log("you have an error"));
+    fetch("http://localhost:3000/mockRecipes")
+    .then((res) => res.json())
+    .then((data2) => {
+      setRecipes(data2)
+      console.log(data2);
+    })
+    .catch((error) => console.log("ERROR FETCHING DATA"));
+    
   }, []);
 
   return (
     <div className="App">
-      <div>
+      {/* <div>
         <header>
           <nav className="nav">
           <img id="logo" src="https://mlsf03rmjfdn.i.optimole.com/QjsyvqU.Z_5R~130ed/w:auto/h:auto/q:auto/http://marcotest.the-coding-school.com/files/WBS-CODING-SCHOOL-logo-square.png" alt="logo" 
@@ -72,7 +87,7 @@ const App = () => {
           <p className="copyright">&copy; Company name 2020</p>
         </div>
 
-      </footer>
+      </footer> */}
     </div>
   );
 };
