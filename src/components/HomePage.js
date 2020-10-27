@@ -11,12 +11,17 @@ const HomePage = ({ countries, recipes, match, history }) => {
       <div className="countryHome" key={country.id}>
         <Link to={`/recipePage/${country.id}`}>
           <h2 className="countryHead">{country.countryDescription}</h2>
-          {/*<img
+          <img
             className="countryImg"
-            src={country.fields.countryImage.fields.file.url}
-            alt={country.fields.countryDescription}
+            src={`http://localhost:3000/${country.fileName}`}
+            alt={country.countryDescription}
             style={{ width: 450, height: 300 }}
-          /> */}
+            // src={country.fields.countryImage.fields.file.url}
+            // alt={country.fields.countryDescription}
+            // style={{ width: 450, height: 300 }}
+            />
+            {console.log("hi")}
+            {console.log(country.fileName)}
         </Link>
       </div>
     ));
