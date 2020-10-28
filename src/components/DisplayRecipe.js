@@ -21,7 +21,7 @@ return(
         .map((recipe)=>{
        return (
         <div className="displayRecipes" key={recipe.id}> 
-         <h1>{recipe.recipeDescription}</h1> 
+         <h1>{recipe.recipedescription}</h1> 
         <div className="displayRecipes-body">
         <div className="img-ingredients-div">
                 {/*<img className="recipeImg recipeImg-displayRecipes" src={recipe.fields.recipeImage.fields.file.url} 

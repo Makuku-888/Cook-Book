@@ -10,11 +10,11 @@ const HomePage = ({ countries, recipes, match, history }) => {
     countries.map((country) => (
       <div className="countryHome" key={country.id}>
         <Link to={`/recipePage/${country.id}`}>
-          <h2 className="countryHead">{country.countryDescription}</h2>
+          <h2 className="countryHead">{country.countrydescription}</h2>
           <img
             className="countryImg"
             src={country.url}
-            alt={country.countryDescription}
+            alt={country.countrydescription}
             style={{ width: 450, height: 300 }}
           /> 
         </Link>

@@ -12,12 +12,6 @@ const App = () => {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
-    // client
-    //   .getEntries({ content_type: "countrySections" })
-    //   .then((response) => {
-    //     setCountries(response.items);
-    //   })
-    //   .catch((error) => console.log("you have an error"));
     fetch("http://localhost:3000/countries")
       .then((res) => res.json())
       .then((data) => {
@@ -28,13 +22,7 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    // client
-    //   .getEntries({ content_type: "recipeSection" })
-    //   .then((response) => {
-    //     setRecipes(response.items);
-    //   })
-    //   .catch((error) => console.log("you have an error"));
-  fetch("http://localhost:3000/recipes")
+    fetch("http://localhost:3000/recipes")
     .then((res) => res.json())
     .then((data2) => {
       setRecipes(data2)

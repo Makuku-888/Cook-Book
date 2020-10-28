@@ -2,6 +2,7 @@
   "name": "cook-book",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3000",
   "dependencies": {
     "@contentful/rich-text-html-renderer": "^14.1.1",
     "@contentful/rich-text-react-renderer": "^14.1.1",
