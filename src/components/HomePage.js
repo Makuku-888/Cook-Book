@@ -2,42 +2,47 @@ import React from "react";
 // import RecipePage from "./RecipePage.js"
 import { Link } from "react-router-dom";
 
-
 const HomePage = ({ countries, recipes, match, history }) => {
-
   const displayCountry =
     countries &&
     countries.map((country) => (
       <div className="countryHome" key={country.id}>
         <Link to={`/recipePage/${country.id}`}>
-          <h2 className="countryHead">{country.countryDescription}</h2>
+          <h2 className="countryHead">{country.countrydescription}</h2>
           <img
             className="countryImg"
-            src={`http://localhost:3000/${country.fileName}`}
-            alt={country.countryDescription}
+            // src={`http://localhost:3000/countries/${country.url}`}
+            src={`${country.url}`}
+            alt={country.countrydescription}
             style={{ width: 450, height: 300 }}
-            // src={country.fields.countryImage.fields.file.url}
-            // alt={country.fields.countryDescription}
-            // style={{ width: 450, height: 300 }}
-            />
-            {console.log("hi")}
-            {console.log(country.fileName)}
+          />
         </Link>
       </div>
     ));
 
   return (
     <>
-    <div className="banner">
-    <div className="bannerText">
-      <h1>Explore the World's finest cuisine with us!</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <p id="continueHere">By clicking on a country, you will be able to take a peek into local cuisine.</p>
-    </div>
-    </div>
-    <div className="countryDisplay">{displayCountry}</div>
+      <div className="banner">
+        <div className="bannerText">
+          <h1>Explore the World's finest cuisine with us!</h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <p id="continueHere">
+            By clicking on a country, you will be able to take a peek into local
+            cuisine.
+          </p>
+        </div>
+      </div>
+      <div className="countryDisplay">{displayCountry}</div>
     </>
-  )
+  );
 };
 export default HomePage;
 
