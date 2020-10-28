@@ -17,7 +17,7 @@ console.log(match.params.recipeId)
 return(
  <>
   
-    {recipes.length > 0 && recipes.filter(recipe => recipeId === recipe.sys.id)
+    {recipes.length > 0 && recipes.filter(recipe => recipeId === recipe.id)
         .map((recipe)=>{
        return (
         <div className="displayRecipes" key={recipe.id}> 

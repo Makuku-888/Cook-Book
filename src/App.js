@@ -18,7 +18,7 @@ const App = () => {
     //     setCountries(response.items);
     //   })
     //   .catch((error) => console.log("you have an error"));
-    fetch("http://localhost:3000/mockCountry")
+    fetch("http://localhost:3000/countries")
       .then((res) => res.json())
       .then((data) => {
         setCountries(data)
@@ -34,14 +34,13 @@ const App = () => {
     //     setRecipes(response.items);
     //   })
     //   .catch((error) => console.log("you have an error"));
-    fetch("http://localhost:3000/mockRecipes")
+  fetch("http://localhost:3000/recipes")
     .then((res) => res.json())
     .then((data2) => {
       setRecipes(data2)
       console.log(data2);
     })
     .catch((error) => console.log("ERROR FETCHING DATA"));
-    
   }, []);
 
   return (
@@ -60,7 +59,22 @@ const App = () => {
           </nav>
         </header>
       <div>
-        <HomePage countries={countries}/>
+      <Switch>
+        <Route path="/displayRecipe/:recipeId"
+          render={(props) => <DisplayRecipe recipes={recipes} {...props}/>}>
+          </Route>
+    <Route path="/recipePage/:countryId"
+          render ={(props) => <RecipePage recipes={recipes} {...props}/>}>
+          </Route>
+         
+          <Route path="/about"
+          render={(props) => <About {...props} />}
+          >
+          </Route>
+          <Route exact path="/">
+            <HomePage countries={countries} />
+          </Route> 
+        </Switch>
       </div>
        
         {/*
