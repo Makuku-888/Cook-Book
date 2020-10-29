@@ -15,7 +15,7 @@ const RecipePage = ({ recipes, params, match }) => {
             .map((recipe) => {
             return (
               <div className="homePage" key={recipe.id}>
-                <Link to={`${recipe.id}`}>
+                <Link to={`/displayRecipe/${recipe.id}`}>
                   <div>
                     <h1 className="recipeHead">{recipe.recipedescription}</h1>
                     <img

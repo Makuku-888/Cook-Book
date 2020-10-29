@@ -29,6 +29,7 @@ const App = () => {
         console.log(data2);
       })
       .catch((error) => console.log("ERROR FETCHING DATA"));
+      fatty
   }, []);
 
   return (
@@ -53,27 +54,26 @@ const App = () => {
               </ul>
             </nav>
           </header>
-          <div>
+          {/* <div>
             <HomePage countries={countries} />
-          </div>
+          </div> */}
 
           <Switch>
-            <Route
-              path="/displayRecipe/:recipeId"
-              render={(props) => <DisplayRecipe recipes={recipes} {...props} />}
-            ></Route>
-            <Route
-              path="/recipePage/:countryId"
-              render={(props) => <RecipePage recipes={recipes} {...props} />}
-            ></Route>
-
+            <Route exact path="/">
+              <HomePage countries={countries} />
+            </Route>
             <Route
               path="/about"
               render={(props) => <About {...props} />}
             ></Route>
-            <Route exact path="/">
-              <HomePage countries={countries} />
-            </Route>
+              <Route
+                path="/recipePage/:countryId"
+                render={(props) => <RecipePage recipes={recipes} {...props} />}
+              ></Route>
+            <Route
+              path="/displayRecipe/:recipeId"
+              render={(props) => <DisplayRecipe recipes={recipes} {...props} />}
+            ></Route>
           </Switch>
         </div>
 
