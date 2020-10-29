@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-// import client from "./contentfulclient.js";
 import HomePage from "./components/HomePage.js";
 import RecipePage from "./components/RecipePage.js";
 import { Link, Route, Switch } from "react-router-dom";
@@ -29,7 +28,6 @@ const App = () => {
         console.log(data2);
       })
       .catch((error) => console.log("ERROR FETCHING DATA"));
-      
   }, []);
 
   return (

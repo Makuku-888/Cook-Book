@@ -14,6 +14,7 @@ const DisplayRecipe = ({ recipes, match, history }) => {
           .filter((recipe) => recipeId === recipe.id)
           .map((recipe) => {
             return (
+              <>
               <div className="displayRecipes" key={recipe.id}>
                 <h1>{recipe.recipedescription}</h1>
                 <div className="displayRecipes-body">
@@ -33,6 +34,7 @@ const DisplayRecipe = ({ recipes, match, history }) => {
                   </p>
                 </div>
               </div>
+              </>
             );
           })}
     </>

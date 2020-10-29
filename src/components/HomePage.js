@@ -3,6 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const HomePage = ({ countries, recipes, match, history }) => {
+  
   const displayCountry =
     countries &&
     countries.map((country) => (
@@ -13,10 +14,9 @@ const HomePage = ({ countries, recipes, match, history }) => {
             className="countryImg"
             src={`http://localhost:3000/assets/images/countries/${country.imagename}`}
 
-            // src={`${country.url}`}
             alt={country.countrydescription}
             style={{ width: 450, height: 300 }}
-          />
+          /> 
         </Link>
       </div>
     ));
