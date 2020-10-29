@@ -20,13 +20,13 @@ const RecipePage = ({ recipes, params, match }) => {
                     <h1 className="recipeHead">{recipe.recipedescription}</h1>
                     <img
                       className="recipeImg"
-                      src={recipe.url}
+                      src={`http://localhost:3000/assets/images/recipes/${recipe.imagename}`}
                       alt={recipe.recipedescription}
                       style={{ width: 350, height: 250 }}
                     />
                   </div>
-                  <p className="ingredients">{recipe.ingredients}</p>
-                  <p className="directions">{recipe.directions} </p>
+                  {/* <p className="ingredients">{recipe.ingredients}</p>
+                  <p className="directions">{recipe.directions} </p> */}
                 </Link>
               </div>
             );

@@ -29,7 +29,7 @@ const App = () => {
         console.log(data2);
       })
       .catch((error) => console.log("ERROR FETCHING DATA"));
-      fatty
+      
   }, []);
 
   return (
