@@ -25,6 +25,7 @@ const RecipePage = ({ recipes, params, match }) => {
                       style={{ width: 350, height: 250 }}
                     />
                   </div>
+
                 </Link>
               </div>
             );
