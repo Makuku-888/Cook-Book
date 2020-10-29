@@ -7,19 +7,19 @@ const RecipePage = ({ recipes, params, match }) => {
   const countryId = parseInt(match.params.countryId);
 
     return (
-      <div className="showRecipes">
+      <div className="showRecipes" >
       {recipes.length > 0 &&
         recipes
         .filter((country) => countryId === country.countryid )
             .map((recipe) => {
             return (
-              <div className="homePage" key={recipe.id}>
+              <div className="homePage"  key={recipe.id}>
                 <Link to={`/displayRecipe/${recipe.id}`}>
                   <div>
                     <h1 className="recipeHead">{recipe.recipedescription}</h1>
                     <img
                       className="recipeImg"
-                      src={recipe.url}
+                      src={`http://localhost:3000/assets/images/recipes/${recipe.imagename}`}
                       alt={recipe.recipedescription}
                       style={{ width: 350, height: 250 }}
                     />

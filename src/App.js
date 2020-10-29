@@ -28,7 +28,6 @@ const App = () => {
         console.log(data2);
       })
       .catch((error) => console.log("ERROR FETCHING DATA"));
-      fatty
   }, []);
 
   return (
@@ -53,6 +52,9 @@ const App = () => {
               </ul>
             </nav>
           </header>
+          {/* <div>
+            <HomePage countries={countries} />
+          </div> */}
 
           <Switch>
             <Route exact path="/">

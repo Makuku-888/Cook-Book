@@ -12,7 +12,7 @@ const HomePage = ({ countries, recipes, match, history }) => {
           <h2 className="countryHead">{country.countrydescription}</h2>
           <img
             className="countryImg"
-            src={country.url}
+            src={`http://localhost:3000/assets/images/countries/${country.imagename}`}
             alt={country.countrydescription}
             style={{ width: 450, height: 300 }}
           /> 
