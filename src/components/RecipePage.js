@@ -7,6 +7,7 @@ const RecipePage = ({ recipes, params, match }) => {
   const countryId = parseInt(match.params.countryId);
 
     return (
+    <div className="recipeDisplay">
       <div className="showRecipes" >
       {recipes.length > 0 &&
         recipes
@@ -29,6 +30,7 @@ const RecipePage = ({ recipes, params, match }) => {
             );
           })}
     </div>
+</div>
   );
 };
 
