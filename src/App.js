@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import client from "./contentfulclient.js";
+// import client from "./contentfulclient.js";
 import HomePage from "./components/HomePage.js";
 import RecipePage from "./components/RecipePage.js";
 import { Link, Route, Switch } from "react-router-dom";
@@ -15,7 +15,7 @@ const App = () => {
     fetch("http://localhost:3000/countries")
       .then((res) => res.json())
       .then((data) => {
-        setCountries(data)
+        setCountries(data);
         console.log(data);
       })
       .catch((error) => console.log("ERROR FETCHING DATA"));
@@ -32,7 +32,7 @@ const App = () => {
   }, []);
 
   return (
-  <>
+   <>
     <div className="App">
       <div>
         <header>
@@ -45,18 +45,16 @@ const App = () => {
             <Link className="nav-link" to="/about">About</Link>
             </ul>
           </nav>
-        </header>
-      <div>
+        </header> 
       <Switch>
-        <Route path="/displayRecipe/:recipeId"
-          render={(props) => <DisplayRecipe recipes={recipes} {...props}/>}>
+          <Route path="/recipes/:id"
+            render={(props) => <DisplayRecipe recipes={recipes} {...props}/>}>
           </Route>
-    <Route path="/recipePage/:countryId"
-          render ={(props) => <RecipePage recipes={recipes} {...props}/>}>
+          <Route path="/recipePage/:countryid"
+            render ={(props) => <RecipePage recipes={recipes} {...props}/>}>
           </Route>
-         
           <Route path="/about"
-          render={(props) => <About {...props} />}
+            render={(props) => <About {...props} />}
           >
           </Route>
           <Route exact path="/">
@@ -64,44 +62,22 @@ const App = () => {
           </Route> 
         </Switch>
       </div>
-       
-        {/*
-        <Switch>
-        <Route path="/displayRecipe/:recipeId"
-          render={(props) => <DisplayRecipe recipes={recipes} {...props}/>}>
-          </Route>
-    <Route path="/recipePage/:countryId"
-          render ={(props) => <RecipePage recipes={recipes} {...props}/>}>
-          </Route>
-         
-          <Route path="/about"
-          render={(props) => <About {...props} />}
-          >
-          </Route>
-          <Route exact path="/">
-            <HomePage countries={countries} />
-          </Route> 
-        </Switch>
-        */}
+        <footer>
+          <div className="social-media-div">
+            <img className="social-media" src="../facebook.png" alt="logo"></img>
+            <img className="social-media" src="../instagram.png"alt="logo"></img>
+            <img className="social-media" src="../twitter.png"alt="logo"></img>
+            <img
+              className="youtube-logo social-media"
+              src="../youtube.png" alt="logo"
+            ></img>
+          </div>
+          <div className="copyright-div">
+            <p className="copyright">&copy; Company name 2020</p>
+          </div>
+        </footer>
       </div>
-      
-
-   {/* 
-    
-    <footer>
-        <div className="social-media-div">
-          <img className="social-media" src="../facebook.png"></img>
-          <img className="social-media" src="../instagram.png"></img>
-          <img className="social-media" src="../twitter.png"></img>
-          <img className="youtube-logo social-media" src="../youtube.png"></img>
-        </div>
-        <div className="copyright-div">
-          <p className="copyright">&copy; Company name 2020</p>
-        </div>
-    </footer> 
-    */}
-    </div>
-   </>
+    </>
   );
 };
 
